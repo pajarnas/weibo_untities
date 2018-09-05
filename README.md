@@ -1,7 +1,7 @@
 # weibo_untities
 Designed to auto scripts for weibo including delete, forward,comment.
 ## Forward Lottery Micro-blog:
-# for one lottery micro blog 
+### for one lottery micro blog 
     1. find the blog and indetntify
     2. like 
     3. follow
@@ -19,7 +19,7 @@ Designed to auto scripts for weibo including delete, forward,comment.
            comment
            exit
            
-# The main function
+### The main function
     1. Travere
     2. refresh
     3. catch exception
