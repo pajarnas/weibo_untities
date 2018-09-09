@@ -53,6 +53,7 @@ def login(user, pasw):
               weibo.switch_to_window(i)
               weibo.close()
         weibo.switch_to_window(main_win)
+        print('wair for 2000 secs')
         time.sleep(2000)
 
 
