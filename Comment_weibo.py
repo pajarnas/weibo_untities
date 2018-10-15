@@ -24,7 +24,7 @@ def login(user, pasw, num, data):
     weibo.find_element_by_xpath('//*[@id="pl_login_form"]/div/div[3]/div[2]/div/input').send_keys(pasw)
     # 点击登录按钮
     weibo.find_element_by_xpath('//*[@id="pl_login_form"]/div/div[3]/div[6]/a').click()
-    time.sleep(6)
+    time.sleep(12)
 
     print ('登陆成功')
     weibo.find_element_by_xpath('//*[@id="v6_pl_leftnav_group"]/div[2]/div[1]/div[5]/div[1]/a/span[2]').click()
@@ -73,9 +73,9 @@ def main():
     """
 
     while True:
-        user = '13253312354'
-        pasw = 'zsq1212'
-        data = '我爱莹莹小仙女！！！！！！！！！！！！！！！！！'
+        user = 'your id'
+        pasw = 'your pass'
+        data = 'Three fake Koreans,韩杂 @低调莫忧 @下雪了你知道吗 @onemorelookandbang  kneel to your grandpapa of LPL '
         num = int(100)
         print('开始登陆微博')
         login(user, pasw,num, data)
