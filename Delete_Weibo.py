@@ -51,8 +51,8 @@ def delweibo(numb):
     print ('微博已经清空')
 
 
-user = '17326833696'
-pasw = 'zsq1212'
+user = 'id'
+pasw = 'pass2'
 numb = 273
 print ('开始登陆微博')
 login(user, pasw, numb)
