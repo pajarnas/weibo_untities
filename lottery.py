@@ -1,25 +1,7 @@
-### for one lottery micro blog
-    # 1. find the blog and indetntify
-    # 2. like
-    # 3. follow
-    # 4. comment
-    # 5. exit
-    # function we need:
-    #   1. re to indentify useful information
-    #       topic to comment , user to follow, topic to follow
-    #   2. follow function (parameters:name, flag)
-    #        open another tab
-    #        follow user or follow topic
-    #        exit
-    #   3. comment function(topic)
-    #        add topic
-    #        comment
-    #        exit
 import re
 from selenium import webdriver
 from selenium import common
-from selenium.webdriver.common.keys import Keys
-from pprint import pprint
+import threading
 
 import time
 
@@ -27,7 +9,7 @@ weibo = webdriver.Chrome()
 weibo.maximize_window()
 weibo.get('https://www.weibo.com/')
 main_win = weibo.current_window_handle
-data = '希望中奖！顺便告白我喜欢某位小仙女！'
+data = '希望中奖！！'
 
 # Login
 def login(user, pasw):
@@ -82,8 +64,8 @@ def iweibo_for_nest():
 
 def iweibo():
     weibo.get('http://s.weibo.com/')
-    weibo.find_element_by_xpath('//*[@id="pl_searchHead"]/div[1]/div/div/div[2]/div/input').send_keys('微博抽奖平台')
-    weibo.find_element_by_xpath('//*[@id="pl_searchHead"]/div[1]/div/div/div[1]/a').click()
+    weibo.find_element_by_xpath('//*[@id="pl_homepage_search"]/div/div[2]/div/input').send_keys('微博抽奖平台')
+    weibo.find_element_by_xpath('//*[@id="pl_homepage_search"]/div/div[2]/button').click()
     # wait for loading completed
     time.sleep(3)
     # find blog's root div list
@@ -200,7 +182,8 @@ def fweibo(buttons,user_link, topic_link, super_topic):
     for i in super_topic:
         for j in i.keys():
             content = content + j + ' '
-    content = content + data
+    content = content + data + '@szhang_na @Cb告别吃土小仙女 '
+
     print (content)
     c_weibo(buttons)
     print ('Collected!')
@@ -210,13 +193,19 @@ def fweibo(buttons,user_link, topic_link, super_topic):
     for i in tr:
         try:
             p = i.find_element_by_xpath('./div/table/tbody/tr/td/div/div[2]/div[2]/div/div[2]/div')
+            time.sleep(2)
             l = p.find_element_by_tag_name('textarea')
             l.click()
-            l.send_keys(content)
-            p.find_element_by_xpath('./ div[2] / ul / li / label').click()
-            p.find_element_by_xpath('. / p[2] / a / span').click()
-            print ('forward successfully')
             time.sleep(2)
+            l.send_keys(content)
+            time.sleep(2)
+            l = p.find_element_by_xpath('./ div[2] / ul / li / label')
+            l.click()
+            time.sleep(2)
+            l = p.find_element_by_xpath('. / p[2] / a / span')
+            l.click()
+            print ('forward successfully')
+            
             continue
         except:
             print('Searching')
@@ -266,3 +255,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
