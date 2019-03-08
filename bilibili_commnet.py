@@ -80,9 +80,9 @@ def main():
     """
 
     while True:
-        user = '13253312354'
-        pasw = 'zsq1212,,,'
-        data = '能给我写的给LPL助威的文章点个喜欢吗，cv1320484， 谢谢！！'
+        user = 'id'
+        pasw = 'pass'
+        data = ''
         print('开始登陆bilibili')
         login(user, pasw, data)
 
